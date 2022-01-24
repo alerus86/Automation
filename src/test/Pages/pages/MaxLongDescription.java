@@ -13,7 +13,7 @@ public class MaxLongDescription {
 
     public void VerifyMaxLongInDescription() throws InterruptedException {
         driver.findElement(textArea).sendKeys("dsfsdfdsfsdfsdfsdfsddsfsdfdsfsdfsdfsdfsddsfsdfdsfsdfsdfsdfsddsfsdfdsfsdfsdfsdfsddsfsdfdsfsdfsdfsdfsddsfsdfdsfsdfsdfsdfsddsfsdfdsfsdfsdfsdfsddsfsdfdsfsdfsdfsdfsddsfsdfdsfsdfsdfsdfsddsfsdfdsfsdfsdfsdfsddsfsdfdsfsdfsdfsdfsddsfsdfdsfsdfsdfsdfsddsfsdfdsfsdfsdfsdfsddsfsdfdsfsdfsdfsdfsddsfsdfdsfsdfsdfsd1234");
-        Thread.sleep(3000);
+        Thread.sleep(1500);
         boolean disable = driver.findElement(createItemButton).isEnabled();
         Assert.assertEquals(false , disable);
 

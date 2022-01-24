@@ -3,6 +3,7 @@ package pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertTrue;
 
 public class EditExistingItem {
 
@@ -20,7 +21,7 @@ public class EditExistingItem {
         driver.findElement(textArea).sendKeys("Mike plays the guitar awesomely!!!");
         driver.findElement(updateItem).click();
         String getEditTitleItem =driver.findElement(editTitleItem).getText();
-        assertEquals("Mike plays the guitar awesomely!!!" , getEditTitleItem);
+        assertTrue(getEditTitleItem.contains("Mike plays the guitar awesomely!!!"));
 
     }
 

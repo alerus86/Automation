@@ -2,6 +2,7 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.testng.Assert;
 
 public class DeleteCreatedItem {
 
@@ -13,6 +14,8 @@ public class DeleteCreatedItem {
     public void DeleteItem()
     {
         driver.findElement(deleteElement).click();
+        String verifyDeleteButtonPopUp = driver.findElement(deleteButton).getText();
+        Assert.assertTrue(verifyDeleteButtonPopUp.contains("Yes, delete it!"));
         driver.findElement(deleteButton).click();
     }
 

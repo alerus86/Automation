@@ -1,6 +1,7 @@
 package SetupAutomation;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
@@ -10,21 +11,24 @@ import java.util.concurrent.TimeUnit;
 
 public class SetupAutomation {
 
-    String driverPath = "driver/chromedriver.exe";
-    WebDriver driver;
-    CreateItem objCreateItem;
-    EditExistingItem objEditExistingItem;
-    DeleteCreatedItem objDeleteCreatedItem;
-    MaxLongDescription objMaxLongDescription;
-    VerifyItemExists objVerifyItemExists;
+    private String driverPath = "driver/chromedriver.exe";
+    private WebDriver driver;
+    private CreateItem objCreateItem;
+    private EditExistingItem objEditExistingItem;
+    private DeleteCreatedItem objDeleteCreatedItem;
+    private MaxLongDescription objMaxLongDescription;
+    private VerifyItemExists objVerifyItemExists;
 
     @BeforeTest
     public void setup() {
-        System.setProperty("webdriver.chrome.driver", "driver/chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", driverPath);
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.get("http://immense-hollows-74271.herokuapp.com/");
+        String ActualTitle = driver.getTitle();
+        String ExpectedTitle = "Stranger List";
+        Assert.assertEquals(ExpectedTitle , ActualTitle );
     }
 
     @Test (priority = 1)
